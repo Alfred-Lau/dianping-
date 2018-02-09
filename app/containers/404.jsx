@@ -2,7 +2,7 @@ import React from 'react';
 
 class NotFound extends React.Component {
     constructor(props, ctx) {
-        super()
+        super();
     }
     render() {
         return (
