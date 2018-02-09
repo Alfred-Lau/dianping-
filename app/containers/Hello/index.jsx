@@ -4,15 +4,25 @@ import { bindActionCreators } from 'redux';
 
 import * as userInfoActionsFromOtherFile from '../../actions/userinfo';
 
+import {getData} from '../../fetch/getData';
+
 class Hello extends React.Component {
     constructor (props, ctx) {
         super(props);
+        this.state = {
+            a: 1,
+            b: 2,
+        };
     }
-    componentDidMount () {
-        console.log(this.props.userinfo);
-        this.props.userinfoActions.update({
-            cityname: 'Nanjing'
-        });
+    handleElement(){
+        let val = {
+            a: 3,
+            b: 4
+        };
+        this.setState(val);
+    }
+    componentDidMount() {
+        this.handleElement();
     }
     componentDidUpdate () {
         console.log(this.props.userinfo);
@@ -20,7 +30,7 @@ class Hello extends React.Component {
     render () {
         return (
             <div>
-        i am hello
+                i am hello
             </div>
         );
     }

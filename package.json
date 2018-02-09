@@ -5,6 +5,7 @@
   "main": "index.js",
   "scripts": {
     "start": "NODE_ENV=dev webpack-dev-server --hot --open",
+    "debug": "webpack-dev-server --hot --open $NODE_DEBUG_OPTION",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "",
@@ -26,6 +27,7 @@
     "css-loader": "^0.28.9",
     "eslint-loader": "^1.9.0",
     "html-webpack-plugin": "^2.30.1",
+    "koa": "^2.4.1",
     "less": "^2.7.3",
     "less-loader": "^4.0.5",
     "open-browser-webpack-plugin": "0.0.5",
@@ -35,12 +37,16 @@
     "webpack-dev-server": "^2.11.1"
   },
   "dependencies": {
+    "es6-promise": "^4.2.4",
     "eslint": "^4.17.0",
     "eslint-plugin-react": "^7.6.1",
+    "koa-body": "^2.5.0",
+    "koa-router": "^7.4.0",
     "react": "^16.2.0",
     "react-dom": "^16.2.0",
     "react-redux": "^5.0.6",
     "react-router-dom": "^4.2.2",
-    "redux": "^3.7.2"
+    "redux": "^3.7.2",
+    "whatwg-fetch": "^2.0.3"
   }
 }
