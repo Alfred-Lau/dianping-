@@ -6,8 +6,8 @@ var OpenBrowserPlugin = require('open-browser-webpack-plugin');
 module.exports = {
     entry: path.resolve(__dirname, 'app/index.jsx'),
     output: {
-        path: __dirname + '/build',
-        publicPath: '/',
+        path: path.resolve(__dirname, 'build'),
+        publicPath:'http://localhost:8080/',
         filename: 'bundle.js'
     },
     resolve: {
@@ -61,8 +61,8 @@ module.exports = {
         // new OpenBrowserPlugin({
         //     url: 'http://localhost:8080'
         // }),
-        // TODO：想要启动调试，这句必不可少
-        new webpack.SourceMapDevToolPlugin(),
+        // TODO：想要启动调试，这句必不可少,和devtool不能共用！！！！！
+        // new webpack.SourceMapDevToolPlugin(),
 
         // 可在业务 js 代码中使用 __DEV__ 判断是否是dev模式（dev模式下可以提示错误、测试报告等, production模式不提示）
         new webpack.DefinePlugin({

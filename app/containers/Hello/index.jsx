@@ -19,6 +19,7 @@ class Hello extends React.Component {
             a: 3,
             b: 4
         };
+        console.log('i am handling');
         this.setState(val);
     }
     componentDidMount() {
