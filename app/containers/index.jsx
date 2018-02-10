@@ -10,6 +10,8 @@ import List from './List';
 import NotFound from './404';
 import Hello from './Hello';
 
+import { getData } from '../fetch/getData';
+
 import * as userInfoActionsFromOtherFile from '../actions/userinfo';
 
 class App extends React.Component {
@@ -25,29 +27,18 @@ class App extends React.Component {
         this.props.userInfoActions.update({
             cityName
         });
+        // test json
+        // getData('/api/test').then((res) => {
+        //     return res.json();
+        // }).then((json) => {
+        //     console.log('i am json');
+        //     console.log(json);
+        // });
     }
     render () {
         return (
             <Router>
                 <div className='wrapper'>
-                    <ul>
-                        <li>
-                            <Link to='/'> Home
-                            </Link>
-                        </li>
-                        <li>
-                            <Link to='/list'> List
-                            </Link>
-                        </li>
-                        <li>
-                            <Link to='/detail'> Detail
-                            </Link>
-                        </li>
-                        <li>
-                            <Link to='/hello'> redux
-                            </Link>
-                        </li>
-                    </ul>
                     <Switch>
                         <Route exact path='/' component={Home} />
                         <Route path='/detail' component={Detail} />

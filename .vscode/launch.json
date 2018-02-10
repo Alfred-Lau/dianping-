@@ -5,6 +5,21 @@
     "version": "0.2.0",
     "configurations": [
         {
+            "type": "chrome",
+            "request": "attach",
+            "name": "Attach to Chrome",
+            "port": 9222,
+            "sourceMaps": true,
+            "webRoot": "${workspaceRoot}",
+            "sourceMapPathOverrides": {
+                "webpack:///./~/*": "${workspaceRoot}/../node_modules/*",
+                "webpack:///../*": "${workspaceRoot}/../node_modules/*",
+                "webpack:///./*": "${workspaceRoot}/../*",
+                "webpack:///*": "/*"
+            },
+            "url": "http://localhost:8080/",
+        },
+        {
                 "name": "Chrome",
                 "type": "chrome",
                 "request": "launch",

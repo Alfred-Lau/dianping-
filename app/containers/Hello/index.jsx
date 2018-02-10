@@ -37,6 +37,8 @@ class Hello extends React.Component {
     }
 }
 
+
+// -----  import react redux
 const mapStateToProps = (state, ownProps) => {
     return {
         userinfo: state.userinfo
