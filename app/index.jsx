@@ -4,6 +4,7 @@ import { Provider } from 'react-redux';
 import App from './containers';
 
 import './index.less';
+import './static/css/font.css';
 
 import configStore from './store/storeConfig';
 

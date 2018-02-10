@@ -9,8 +9,13 @@ import Detail from './Detail';
 import List from './List';
 import NotFound from './404';
 import Hello from './Hello';
+import City from './City';
 
-import { getData } from '../fetch/getData';
+//TODO:  理解history的用法并实践
+import createBrowserHistory from 'history/createBrowserHistory';
+const customHistory = createBrowserHistory();
+
+// import { getData } from '../fetch/getData'
 
 import * as userInfoActionsFromOtherFile from '../actions/userinfo';
 
@@ -19,31 +24,31 @@ class App extends React.Component {
         super();
     }
 
-    componentDidMount() {
+    componentDidMount () {
         let cityName = localStorage.getItem('cityname');
         if (!cityName) {
-            cityName = 'Beijing';
+            cityName = '北京';
         }
         this.props.userInfoActions.update({
-            cityName
-        });
+            cityName});
         // test json
         // getData('/api/test').then((res) => {
-        //     return res.json();
+        //     return res.json()
         // }).then((json) => {
-        //     console.log('i am json');
-        //     console.log(json);
-        // });
+        //     console.log('i am json')
+        //     console.log(json)
+        // })
     }
     render () {
         return (
-            <Router>
+            <Router history={customHistory}>
                 <div className='wrapper'>
                     <Switch>
                         <Route exact path='/' component={Home} />
                         <Route path='/detail' component={Detail} />
                         <Route path='/list' component={List} />
                         <Route path='/hello' component={Hello} />
+                        <Route path='/city' component={City} />
                         <Route component={NotFound} />
                     </Switch>
                 </div>

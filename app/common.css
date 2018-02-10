@@ -1,31 +1,20 @@
-body,
-ul,
-ol,
-li,
-p,
-h1,
-h2,
-h3,
-h4,
-h5,
-h6,
-form,
-fieldset,
-table,
-td,
-img,
-div,
-dl,
-dt,
-dd,
-input {
+body {
     margin: 0;
     padding: 0;
+    /* background-color: #f1f1f1; */
 }
 
-body {
-    font-size: 12px;
+body * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
 }
+
+
+
+/* body {
+    font-size: 12px;
+} */
 
 img {
     border: none;
@@ -36,14 +25,15 @@ li {
 }
 
 input,
-select,
-textarea {
+/* select, */
+/* textarea  */
+{
     outline: none;
 }
-
+/* 
 textarea {
     resize: none;
-}
+} */
 
 a {
     text-decoration: none;
@@ -51,10 +41,18 @@ a {
 
 .clearfix:after {
     content: "";
-    display: block;
+    display: table;
     clear: both;
 }
 
 .clearfix {
     zoom: 1;
+}
+
+.float-left{
+    float: left;
+}
+
+.float-right{
+    float:right;
 }
