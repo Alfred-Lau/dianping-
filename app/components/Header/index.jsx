@@ -10,7 +10,7 @@ export default class Header extends Component {
         return (
             <div id='common-header'>
                 <i className='icon-chevron-left' onClick={this.clickHandle.bind(this)}></i>    
-                <h1>地区选择</h1>
+                <h1>选择城市</h1>
             </div>
         );
     }
