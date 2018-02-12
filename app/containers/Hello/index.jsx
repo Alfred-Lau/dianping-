@@ -4,9 +4,14 @@ import { bindActionCreators } from 'redux';
 
 import * as userInfoActionsFromOtherFile from '../../actions/userinfo';
 
-import {getData} from '../../fetch/getData';
+import { getData } from '../../fetch/getData';
+
+import PropTypes from 'prop-types';
 
 class Hello extends React.Component {
+    static defaultProps = {
+        name: 'king of code'
+    }
     constructor (props, ctx) {
         super(props);
         this.state = {
@@ -28,15 +33,21 @@ class Hello extends React.Component {
     componentDidUpdate () {
         console.log(this.props.userinfo);
     }
+    // TODO: notice the method to use th router params.
     render () {
         return (
             <div>
-                i am hello
+                {this.props.match.params.id}
+                &nbsp;
+                {this.props.name}
             </div>
         );
     }
 }
 
+Hello.propTypes = {
+    name:PropTypes.string.isRequired
+};
 
 // -----  import react redux
 const mapStateToProps = (state, ownProps) => {

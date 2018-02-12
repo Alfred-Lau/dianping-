@@ -47,7 +47,7 @@ class App extends React.Component {
                         <Route exact path='/' component={Home} />
                         <Route path='/detail' component={Detail} />
                         <Route path='/list' component={List} />
-                        <Route path='/hello' component={Hello} />
+                        <Route path='/hello/:id' component={Hello} />
                         <Route path='/city' component={City} />
                         <Route component={NotFound} />
                     </Switch>
