@@ -46,8 +46,25 @@ module.exports = {
                 ],
                 exclude: /(node_modules|bower_components)/
             },
-            { test:/\.(png|gif|jpg|jpeg|bmp)$/i, loader:'url-loader?limit=5000' },  // 限制大小5kb
-            { test:/\.(png|woff|woff2|svg|ttf|eot)($|\?)/i, loader:'url-loader?limit=5000'} // 限制大小小于5k
+            // {
+            // be careful the impression problem
+            //     test: /\.(png|gif|jpg|jpeg|bmp)$/i,
+            //     loader: 'url-loader?limit=5000'
+            // },  // 限制大小5kb
+            // {
+            //     test: /\.(png|woff|woff2|svg|ttf|eot)($|\?)/i,
+            //     loader: 'url-loader?limit=5000'
+            // }, // 限制大小小于5k
+            {
+                test: /\.(jpg|jpeg|gif|bmp|png|webp)?$/i,
+                exclude: /(node_modules|bower_components)/,
+                loader: 'file-loader'
+            },
+            {
+                test: /\.(woff|woff2|svg|ttf|eot)?$/i,
+                exclude: /(node_modules|bower_components)/,
+                loader: 'file-loader'
+            }
         ]
     },
     plugins: [
@@ -68,14 +85,15 @@ module.exports = {
 
         // 可在业务 js 代码中使用 __DEV__ 判断是否是dev模式（dev模式下可以提示错误、测试报告等, production模式不提示）
         new webpack.DefinePlugin({
-            __DEV__: JSON.stringify(JSON.parse((process.env.NODE_ENV == 'dev') || 'false'))
+            __DEV__: JSON.stringify(JSON.parse((process.env.NODE_ENV == 'dev') || 'false')),
+            __TEST__:JSON.stringify(JSON.parse((process.env.NODE_ENV == 'test') || 'false'))
         })
     ],
     // 使用这个一定要停止使用其他代理，也就是翻墙
     devServer: {
         proxy: {
             '/api': {
-                target: 'http://localhost:3001',
+                target: 'http://localhost:3000',
                 secure:false  
             }
         },

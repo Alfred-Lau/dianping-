@@ -1,3 +1,35 @@
-.category{
-    background: lightblue;
+.home-category{
+    padding: 10px;
+    .carousel-item{
+        .item{
+            display:inline-block;
+            width: 20%;
+            font-size: 14px;
+            text-align: center;
+            background: url('../../static/img/1.png') no-repeat top center;
+            background-size: auto 50px;
+            padding-top: 50px;
+        }
+    }
+}
+
+.index-container{
+    margin-top: 10px;
+    
+    ul{
+        text-align: center;
+
+        li{
+        display: inline-block;
+        width: 8px;
+        height: 8px;
+        border-radius: 4px;
+        background-color: #ccc;
+        margin: 0 3px;
+        }
+
+        li.selected{
+            background-color: rgb(233, 32, 61);
+        }
+    }
 }

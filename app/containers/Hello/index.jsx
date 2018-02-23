@@ -9,17 +9,14 @@ import { getData } from '../../fetch/getData';
 import PropTypes from 'prop-types';
 
 class Hello extends React.Component {
-    static defaultProps = {
-        name: 'king of code'
-    }
     constructor (props, ctx) {
         super(props);
         this.state = {
             a: 1,
-            b: 2,
+            b: 2
         };
     }
-    handleElement(){
+    handleElement () {
         let val = {
             a: 3,
             b: 4
@@ -27,7 +24,7 @@ class Hello extends React.Component {
         console.log('i am handling');
         this.setState(val);
     }
-    componentDidMount() {
+    componentDidMount () {
         this.handleElement();
     }
     componentDidUpdate () {
@@ -37,16 +34,20 @@ class Hello extends React.Component {
     render () {
         return (
             <div>
-                {this.props.match.params.id}
-                &nbsp;
+                {this.props.match.params.id} &nbsp;
                 {this.props.name}
             </div>
         );
     }
 }
 
+Hello.defaultProps = {
+    name: 'king of code'
+};
+
+
 Hello.propTypes = {
-    name:PropTypes.string.isRequired
+    name: PropTypes.string.isRequired
 };
 
 // -----  import react redux

@@ -5,13 +5,14 @@ import CurrentCity from '../../components/CurrentCity';
 import SpaceBar from '../../components/SpaceBar';
 import CityList from '../../components/CityList';
 import { bindActionCreators } from 'redux';
-import {connect} from 'react-redux';
+import { connect } from 'react-redux';
 
 import * as userInfoActionsFromOtherFile from '../../actions/userinfo';
 
 class City extends Component {
     constructor (props, ctx) {
         super(props, ctx);
+        console.log(userInfoActionsFromOtherFile);
     }
     changeCity (newCity) {
         if (newCity === null) {
@@ -22,7 +23,7 @@ class City extends Component {
         this.props.userInfoActions.update(userinfo);
 
         localStorage.setItem('cityname', newCity);
-        
+
         this.props.history.replace('/');
     }
     render () {
@@ -45,7 +46,7 @@ const mapStateToProps = (state, ownProps) => {
 
 const mapDispatchToProps = (dispatch, ownProps) => {
     return {
-        userInfoActions: bindActionCreators(userInfoActionsFromOtherFile,dispatch)
+        userInfoActions: bindActionCreators(userInfoActionsFromOtherFile, dispatch)
     };
 };
 export default connect(mapStateToProps, mapDispatchToProps)(City);

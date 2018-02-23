@@ -5,6 +5,9 @@ import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
 
 import Hello from '../Hello'; 
+import SpaceBar from '../../components/SpaceBar';
+import Ad from './subpage/Ad';
+import List from './subpage/List';
  
 class Home extends React.Component{
     render() {
@@ -12,9 +15,10 @@ class Home extends React.Component{
             <div>
                 <HomeHeader cityName={this.props.userinfo.cityName}></HomeHeader>
                 <Category></Category>
-                <Link to='/hello/6688'>
-                    <li>test the prop-types</li>
-                </Link>
+                <SpaceBar options={{}}></SpaceBar>
+                <Ad></Ad>
+                <SpaceBar options={{ title: '猜你喜欢' }}></SpaceBar>
+                <List></List>
             </div>
         );
     }

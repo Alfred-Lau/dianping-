@@ -22,6 +22,7 @@ import * as userInfoActionsFromOtherFile from '../actions/userinfo';
 class App extends React.Component {
     constructor (props, ctx) {
         super();
+        console.log(__DEV__,__TEST__);
     }
 
     componentDidMount () {
@@ -31,13 +32,6 @@ class App extends React.Component {
         }
         this.props.userInfoActions.update({
             cityName});
-        // test json
-        // getData('/api/test').then((res) => {
-        //     return res.json()
-        // }).then((json) => {
-        //     console.log('i am json')
-        //     console.log(json)
-        // })
     }
     render () {
         return (
