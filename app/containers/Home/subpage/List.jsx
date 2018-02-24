@@ -2,13 +2,16 @@ import React, { Component } from 'react';
 import { getListData } from '../../../fetch/Home/Home';
 
 import ListContainer from '../../../components/ListContainer';
+import LoadMore from '../../../components/LoadMore';
 
 export default class List extends Component {
     constructor (props, ctx) {
         super(props);
         this.state = {
-            hasMore: true,
-            data: []
+            hasMore: false,
+            data: [],
+            isLoadingMore: false,
+            page: 0
         };
     }
     componentDidMount () {
@@ -32,6 +35,9 @@ export default class List extends Component {
                     : <div>
                         {/* loding */}
                     </div>}
+                {this.state.hasMore
+                    ? <LoadMore></LoadMore>
+                    : ' '}
             </div>
         );
     }

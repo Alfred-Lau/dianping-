@@ -12,9 +12,9 @@ export default class ListItem extends Component {
                 <div className="item-content ">
                     <h3 className='item-title'>{title}</h3>    
                     <p className='item-subTitle'>{subTitle}</p>
-                    <span className="item-price">{price}</span>
+                    <span className="item-price">￥{price}</span>
                     <span className="item-distance">{distance}</span>
-                    <span className="item-number">{mumber}</span>
+                    <span className="item-number">已售{mumber}</span>
                 </div>
                 
             </div>

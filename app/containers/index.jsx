@@ -6,7 +6,6 @@ import { connect } from 'react-redux';
 
 import Home from './Home';
 import Detail from './Detail';
-import List from './List';
 import NotFound from './404';
 import Hello from './Hello';
 import City from './City';
@@ -40,7 +39,6 @@ class App extends React.Component {
                     <Switch>
                         <Route exact path='/' component={Home} />
                         <Route path='/detail' component={Detail} />
-                        <Route path='/list' component={List} />
                         <Route path='/hello/:id' component={Hello} />
                         <Route path='/city' component={City} />
                         <Route component={NotFound} />
