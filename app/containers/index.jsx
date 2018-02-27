@@ -1,14 +1,9 @@
 import React from 'react';
-import { BrowserRouter as Router, Route, Link, Switch } from 'react-router-dom';
 
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
 
-import Home from './Home';
-import Detail from './Detail';
-import NotFound from './404';
-import Hello from './Hello';
-import City from './City';
+import { withRouter} from 'react-router-dom';
 
 //TODO:  理解history的用法并实践
 import createBrowserHistory from 'history/createBrowserHistory';
@@ -20,8 +15,10 @@ import * as userInfoActionsFromOtherFile from '../actions/userinfo';
 
 class App extends React.Component {
     constructor (props, ctx) {
-        super();
-        console.log(__DEV__,__TEST__);
+        super(props,ctx);
+        this.state = {
+            initDone:false
+        };
     }
 
     componentDidMount () {
@@ -31,20 +28,20 @@ class App extends React.Component {
         }
         this.props.userInfoActions.update({
             cityName});
+        this.setState({
+            initDone:true
+        });
+        // localStorage.setItem('cityname',cityName);
     }
     render () {
         return (
-            <Router history={customHistory}>
-                <div className='wrapper'>
-                    <Switch>
-                        <Route exact path='/' component={Home} />
-                        <Route path='/detail' component={Detail} />
-                        <Route path='/hello/:id' component={Hello} />
-                        <Route path='/city' component={City} />
-                        <Route component={NotFound} />
-                    </Switch>
-                </div>
-            </Router>
+            <div>
+                {
+                    this.state.initDone
+                        ? this.props.children
+                        : <span>加载中</span>
+                }
+            </div>
         );
     }
 }
@@ -61,7 +58,7 @@ function mapDispatchToProps (dispatch) {
         userInfoActions: bindActionCreators(userInfoActionsFromOtherFile, dispatch)
     };
 }
-export default connect(
+export default withRouter(connect(
     mapStateToProps,
     mapDispatchToProps
-)(App);
+)(App));

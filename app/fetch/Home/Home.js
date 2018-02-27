@@ -1,11 +1,11 @@
-import { getData } from '../getData';
+import { getHomeDataAPI,getListDataAPI } from '../getData';
 
 export const getHomeData = (addr) => {
-    const res = getData(addr);
+    const res = getHomeDataAPI(addr);
     return res;
 };
 
-export const getListData = (addr) => {
-    const res = getData(addr);
+export const getListData = (cityname,page) => {
+    const res = getListDataAPI(cityname,page);
     return res;
 };

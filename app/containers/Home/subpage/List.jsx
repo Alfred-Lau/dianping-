@@ -1,9 +1,11 @@
 import React, { Component } from 'react';
-import { getListData } from '../../../fetch/Home/Home';
+import { getListData,getHomeData } from '../../../fetch/Home/Home';
 
 import ListContainer from '../../../components/ListContainer';
 import LoadMore from '../../../components/LoadMore';
 
+
+import './style.less';
 export default class List extends Component {
     constructor (props, ctx) {
         super(props);
@@ -16,7 +18,7 @@ export default class List extends Component {
     }
     componentDidMount () {
         const addr = '/api/homelist/beijing/3';
-        const res = getListData(addr);
+        const res = getHomeData(addr);
         res
             .then((res) => res.json())
             .then((json) => {
@@ -27,16 +29,38 @@ export default class List extends Component {
                 }
             });
     }
+    loadMoreFn(){
+        this.setState({
+            isLoadingMore:true
+        });
+        const cityName = this.props.cityName;
+        const page = this.state.page;
+        const res = getListData(cityName, page);
+        this.handleRes(res);
+    }
+    handleRes(res){
+        res
+            .then(resp=>resp.json())
+            .then(json=>{
+                const {hasMore, data} = json;
+                this.setState({
+                    isLoadingMore:false,
+                    data:this.state.data.concat(data),
+                    hasMore:hasMore
+                });
+              
+            });
+    }
     render () {
         return (
-            <div>
+            <div className='home-list-wrapper'>
                 {this.state.data.length > 0
                     ? <ListContainer data={this.state.data} />
                     : <div>
                         {/* loding */}
                     </div>}
                 {this.state.hasMore
-                    ? <LoadMore></LoadMore>
+                    ? <LoadMore isLoadingMore={this.state.isLoadMore} loadMoreFn={this.loadMoreFn.bind(this)}></LoadMore>
                     : ' '}
             </div>
         );

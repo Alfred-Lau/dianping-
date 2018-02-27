@@ -31,7 +31,7 @@ class City extends Component {
             <div className='city'>
                 <Header></Header>
                 <CurrentCity city={this.props.userinfo.cityName}></CurrentCity>
-                <SpaceBar></SpaceBar>
+                <SpaceBar options={{title:'选择城市'}}></SpaceBar>
                 <CityList fn={this.changeCity.bind(this)}></CityList>
             </div>
         );
