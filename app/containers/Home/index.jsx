@@ -8,6 +8,7 @@ import Hello from '../Hello';
 import SpaceBar from '../../components/SpaceBar';
 import Ad from './subpage/Ad';
 import List from './subpage/List';
+import NormalLoginForm from '../SubForm';
  
 class Home extends React.Component{
     render() {
@@ -19,6 +20,7 @@ class Home extends React.Component{
                 <Ad></Ad>
                 <SpaceBar options={{ title: '猜你喜欢' }}></SpaceBar>
                 <List></List>
+                <NormalLoginForm></NormalLoginForm>
             </div>
         );
     }

@@ -7,14 +7,14 @@ module.exports = {
     entry: path.resolve(__dirname, 'app/index.jsx'),
     output: {
         path: path.resolve(__dirname, 'build'),
-        publicPath:'http://localhost:8080/',
+        publicPath: 'http://localhost:8080/',
         filename: 'bundle.js'
     },
     resolve: {
         extensions: ['.js', '.jsx']
     },
     // 调试必须
-    devtool:'source-map',
+    devtool: 'source-map',
     module: {
         rules: [
             {
@@ -31,8 +31,32 @@ module.exports = {
                 use: ['babel-loader'],
                 exclude: /node_modules/
             },
+            // {
+            //     test: /\.css$/,
+            //     use: [
+            //         'style-loader',
+            //         {
+            //             loader: 'css-loader',
+            //             options: {
+            //                 sourceMap: true,
+            //                 localIdentName: '[local]___[hash:base64:5]',
+            //                 importLoaders: 0,
+            //                 modules: true
+            //             }
+            //         }
+            //     ],
+            //     exclude: /node_modules/
+            // },
             {
-                test: /\.(less|css)?$/,
+                test: /\.css$/,
+                use: [
+                    'style-loader',
+                    'css-loader'
+                ]
+            },
+            // css不能走less-loader
+            {
+                test: /\.(less)?$/,
                 use: [
                     'style-loader',
                     {
@@ -45,6 +69,7 @@ module.exports = {
                     'less-loader'
                 ],
                 exclude: /(node_modules|bower_components)/
+
             },
             // {
             // be careful the impression problem
@@ -86,7 +111,7 @@ module.exports = {
         // 可在业务 js 代码中使用 __DEV__ 判断是否是dev模式（dev模式下可以提示错误、测试报告等, production模式不提示）
         new webpack.DefinePlugin({
             __DEV__: JSON.stringify(JSON.parse((process.env.NODE_ENV == 'dev') || 'false')),
-            __TEST__:JSON.stringify(JSON.parse((process.env.NODE_ENV == 'test') || 'false'))
+            __TEST__: JSON.stringify(JSON.parse((process.env.NODE_ENV == 'test') || 'false'))
         })
     ],
     // 使用这个一定要停止使用其他代理，也就是翻墙
@@ -94,7 +119,7 @@ module.exports = {
         proxy: {
             '/api': {
                 target: 'http://localhost:3000',
-                secure:false  
+                secure: false
             }
         },
         contentBase: './build',
