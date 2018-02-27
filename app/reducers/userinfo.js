@@ -1,10 +1,11 @@
 import * as actionTypes from '../constants/userinfo';
 
-const initialState = {};
-export default (state=initialState, action) => {
+// TODO: initialState可以是各种数据类型
+const initialState = [];
+export default (state = initialState , action) => {
     switch (action.type) {
     case actionTypes.USERINFO_UPDATE:
-        return action.data;
+        return state.concat([action.data]);
     default:
         return state;
     }
