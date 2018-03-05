@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
 
+import Star from '../../../components/Star';
+
 export default class Content extends Component {
     render() {
         const {title, subTitle,desc, star,price,img} = this.props.data;
@@ -12,6 +14,10 @@ export default class Content extends Component {
                     <h3>
                         {title}
                     </h3>
+                    <Star score={star}></Star>
+                    <span className="price">{price}</span>
+                    <div className="sub-title">{subTitle}</div>
+
 
                 </div>
                 

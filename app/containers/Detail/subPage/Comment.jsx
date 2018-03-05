@@ -4,6 +4,8 @@ import { getComments } from '../../../fetch/Detail/comments';
 
 import CommentItem from '../../../components/CommentItem';
 
+
+import './style.less';
 export default class Comment extends Component {
     constructor(props) {
         super(props);
@@ -33,6 +35,7 @@ export default class Comment extends Component {
     render() {
         return (
             <div>
+                <h3>用户点评</h3>    
                 {
                     this.state.data.map((item, index) => {
                         return <CommentItem key={index} source={item}></CommentItem>;
