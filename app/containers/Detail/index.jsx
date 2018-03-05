@@ -22,7 +22,7 @@ class Detail extends React.Component{
 
     }
 
-    handleRes = (res) => {
+    handleRes(res){
         res
             .then((res) => res.json())
             .then((json) => {

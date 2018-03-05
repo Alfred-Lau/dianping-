@@ -18,7 +18,7 @@ export default class Comment extends Component {
         const res = getComments(page, id);
         this.handleRes(res);
     }
-    handleRes = (res) => {
+    handleRes(res) {
         res
             .then((res) => res.json())
             .then((json) => {
