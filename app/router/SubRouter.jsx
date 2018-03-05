@@ -16,7 +16,7 @@ export default class SubRouter extends Component {
         return (
             <Switch>
                 <Route exact path='/' component={Home} />
-                <Route path='/detail' component={Detail} />
+                <Route path='/detail/:id' component={Detail} />
                 <Route path='/hello/:id' component={Hello} />
                 <Route path='/city' component={City} />
                 <Route component={NotFound} />

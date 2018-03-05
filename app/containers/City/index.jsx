@@ -29,7 +29,7 @@ class City extends Component {
     render () {
         return (
             <div className='city'>
-                <Header></Header>
+                <Header title='选择城市'></Header>
                 <CurrentCity city={this.props.userinfo.cityName}></CurrentCity>
                 <SpaceBar options={{title:'选择城市'}}></SpaceBar>
                 <CityList fn={this.changeCity.bind(this)}></CityList>

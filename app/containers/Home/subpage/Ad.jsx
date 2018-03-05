@@ -14,7 +14,7 @@ export default class Ad extends Component {
 
     componentDidMount () {
         const res = getHomeData('/api/homead');
-        res.then((resp) => {
+        res.then(resp => {
             return resp.json();
         }, (err) => {
             console.log(err.message);

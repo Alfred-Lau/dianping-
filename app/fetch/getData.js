@@ -10,3 +10,14 @@ export const getListDataAPI = (cityname, page)=>{
     const addr = `/api/homelist/${city}/${page}`;
     return fetch(addr);
 };
+
+export const getDetailDateAPI = (id) => {
+    const addr = `/api/detail/info/${id}`;
+    return fetch(addr);
+};
+
+export const getCommentsDataAPI = (page, id) => {
+    page = page || 0;
+    const addr = `/api/detail/comment/${id}/${page}`;
+    return fetch(addr);
+};

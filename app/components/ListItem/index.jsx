@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
 
+import {Link} from 'react-router-dom';
+
 import './style.less';
 export default class ListItem extends Component {
     render() {
@@ -7,15 +9,16 @@ export default class ListItem extends Component {
         const { title, img, subTitle, price, distance, mumber, id } = this.props.data;
         return (
             <div className='item-wrapper '>
-                <img src={src} alt={title} className='item-img' />
-                <div className="item-content ">
-                    <h3 className='item-title'>{title}</h3>    
-                    <p className='item-subTitle'>{subTitle}</p>
-                    <span className="item-price">￥{price}</span>
-                    <span className="item-distance">{distance}</span>
-                    <span className="item-number">已售{mumber}</span>
-                </div>
-                
+                <Link to={`/detail/${id}`}>
+                    <img src={src} alt={title} className='item-img' />
+                    <div className="item-content ">
+                        <h3 className='item-title'>{title}</h3>
+                        <p className='item-subTitle'>{subTitle}</p>
+                        <span className="item-price">￥{price}</span>
+                        <span className="item-distance">{distance}</span>
+                        <span className="item-number">已售{mumber}</span>
+                    </div>
+                </Link>
             </div>
         );
     }

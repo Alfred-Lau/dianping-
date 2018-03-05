@@ -7,10 +7,12 @@ export default class Header extends Component {
         window.history.back();
     }
     render() {
+        const { title } = this.props;
+        
         return (
             <div id='common-header'>
                 <i className='icon-chevron-left' onClick={this.clickHandle.bind(this)}></i>    
-                <h1>选择城市</h1>
+                <h1>{title}</h1>
             </div>
         );
     }
