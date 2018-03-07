@@ -34,8 +34,8 @@ export default class Comment extends Component {
     }
     render() {
         return (
-            <div>
-                <h3>用户点评</h3>    
+            <div className='comment-wrapper'>
+                <h3 className='comment-title'>网友点评</h3>    
                 {
                     this.state.data.map((item, index) => {
                         return <CommentItem key={index} source={item}></CommentItem>;
