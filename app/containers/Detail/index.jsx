@@ -6,7 +6,8 @@ import Info from './subPage/Info';
 import Comment from './subPage/Comment';
 import SpaceBar from '../../components/SpaceBar';
 
-import {getDetail} from '../../fetch/Detail/info';
+import { getDetail } from '../../fetch/Detail/info';
+
 
 import './style.less';
 

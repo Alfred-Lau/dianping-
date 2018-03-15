@@ -14,7 +14,11 @@ class Home extends React.Component{
         console.log(this.props.userinfo);
         return (
             <div>
-                <HomeHeader cityName={this.props.userinfo.cityName}></HomeHeader>
+                <HomeHeader
+                    cityName={this.props.userinfo.cityName}
+                    history={this.props.history}
+                >
+                </HomeHeader>
                 <Category></Category>
                 <SpaceBar options={{}}></SpaceBar>
                 <Ad></Ad>

@@ -4,7 +4,8 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "start": "NODE_ENV=dev webpack-dev-server --hot",
+    "start": "NODE_ENV=dev webpack-dev-server --hot  --history-api-fallback",
+
     "mock": "node --harmony ./mock/server.js",
     "debug": "webpack-dev-server --hot --open $NODE_DEBUG_OPTION",
     "test": "echo \"Error: no test specified\" && exit 1",
