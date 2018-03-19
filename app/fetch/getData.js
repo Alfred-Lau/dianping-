@@ -28,3 +28,8 @@ export const getSearchResultDataAPI = (page, city, category, keywrod) => {
     const api = '/api/search/${page}/${city}/${category}/${keyword}';
     return fetch(api);
 };
+
+export const getOrderListDataAPI = (username) => {
+    const api = `/api/orderlist/${username}`;
+    return fetch(api);
+};
