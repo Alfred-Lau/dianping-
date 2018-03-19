@@ -132,4 +132,6 @@ router.post('/api/submitComment', (ctx, next)=> {
 // 开始服务并生成路由
 app.use(router.routes())
     .use(router.allowedMethods());
+
+console.log('start listening at 3000');
 app.listen(3000);

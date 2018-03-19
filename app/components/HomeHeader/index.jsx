@@ -31,7 +31,9 @@ class HomeHeader extends React.Component {
                         </Link>)}
                 </div>
                 <div className='home-header-right float-right'>
-                    <i className='icon-user'></i>
+                    <Link to='/user-center'>
+                        <i className = 'icon-user' > </i>                    
+                    </Link>
                 </div>
                 <div className='home-header-middle'>
                     <div className='search-container'>

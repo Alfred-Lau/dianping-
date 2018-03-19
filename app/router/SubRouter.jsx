@@ -8,6 +8,8 @@ import NotFound from '../containers/404';
 import Hello from '../containers/Hello';
 import City from '../containers/City';
 import SearchResult from '../components/SearchResult';
+import UserCenter from '../containers/UserCenter';
+import Login from '../containers/Login';
 
 export default class SubRouter extends Component {
     constructor (props) {
@@ -21,6 +23,8 @@ export default class SubRouter extends Component {
                 <Route path='/hello/:id' component={Hello} />
                 <Route path='/city' component={City} />
                 <Route path='/search/:keyword' component={SearchResult}></Route>
+                <Route path='/user-center' component={UserCenter}></Route>
+                <Route path='/login' component={Login}></Route>
                 <Route component={NotFound} />
             </Switch>
         );
