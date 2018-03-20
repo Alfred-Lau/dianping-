@@ -33,3 +33,13 @@ export const getOrderListDataAPI = (username) => {
     const api = `/api/orderlist/${username}`;
     return fetch(api);
 };
+
+export const validateUserDataAPI = (user) => {
+    console.log('userinfo mes',user);
+    const params = {
+        method: 'POST',
+        body: JSON.stringify(user)
+    };
+
+    return fetch('/api/validate',params);
+};

@@ -1,20 +1,22 @@
 var koa = require('koa');
 var Router = require('koa-router');
+var koaBodyparser = require('koa-bodyparser');
 
 var app = new koa();
 var router = new Router();
 
-router.get('/', (ctx, next)=> {
+app.use(koaBodyparser());
+router.get('/', (ctx, next) => {
     ctx.body = 'hello koa !';
 });
 
-router.get('/api', (ctx, next)=> {
+router.get('/api', (ctx, next) => {
     ctx.body = 'test data';
 });
 
 // 首页 —— 广告（超值特惠）
 var homeAdData = require('./home/ad.js');
-router.get('/api/homead', (ctx, next)=> {
+router.get('/api/homead', (ctx, next) => {
     console.log('首页 —— 广告（超值特惠）');
 
     ctx.body = homeAdData;
@@ -22,7 +24,7 @@ router.get('/api/homead', (ctx, next)=> {
 
 // 首页 —— 推荐列表（猜你喜欢）
 var homeListData = require('./home/list.js');
-router.get('/api/homelist/:city/:page', (ctx, next)=> {
+router.get('/api/homelist/:city/:page', (ctx, next) => {
     console.log('首页 —— 推荐列表（猜你喜欢）');
 
     // 参数
@@ -38,7 +40,7 @@ router.get('/api/homelist/:city/:page', (ctx, next)=> {
 
 // 搜索结果页 - 搜索结果 - 三个参数
 var searchListData = require('./search/list.js');
-router.get('/api/search/:page/:city/:category/:keyword', (ctx, next)=> {
+router.get('/api/search/:page/:city/:category/:keyword', (ctx, next) => {
     console.log('搜索结果页 - 搜索结果 ------------------------------');
 
     // 参数
@@ -62,7 +64,7 @@ router.get('/api/search/:page/:city/:category/:keyword', (ctx, next)=> {
     ctx.body = searchListData;
 });
 // 搜索结果页 - 搜索结果 - 两个参数
-router.get('/api/search/:page/:city/:category', (ctx, next)=> {
+router.get('/api/search/:page/:city/:category', (ctx, next) => {
     console.log('搜索结果页 - 搜索结果');
 
     // 参数
@@ -80,7 +82,7 @@ router.get('/api/search/:page/:city/:category', (ctx, next)=> {
 
 // 详情页 - 商户信息
 const detailInfo = require('./detail/info.js');
-router.get('/api/detail/info/:id', (ctx, next)=> {
+router.get('/api/detail/info/:id', (ctx, next) => {
     console.log('详情页 - 商户信息');
 
     const params = ctx.params;
@@ -92,7 +94,7 @@ router.get('/api/detail/info/:id', (ctx, next)=> {
 });
 // 详情页 - 用户评论
 const detailComment = require('./detail/comment.js');
-router.get('/api/detail/comment/:page/:id', (ctx, next)=> {
+router.get('/api/detail/comment/:page/:id', (ctx, next) => {
     console.log('详情页 - 用户点评');
 
     const params = ctx.params;
@@ -107,7 +109,7 @@ router.get('/api/detail/comment/:page/:id', (ctx, next)=> {
 
 // 订单列表
 const orderList = require('./orderlist/orderList.js');
-router.get('/api/orderlist/:username', (ctx, next)=> {
+router.get('/api/orderlist/:username', (ctx, next) => {
     console.log('订单列表');
 
     const params = ctx.params;
@@ -118,7 +120,7 @@ router.get('/api/orderlist/:username', (ctx, next)=> {
 });
 
 // 提交评论
-router.post('/api/submitComment', (ctx, next)=> {
+router.post('/api/submitComment', (ctx, next) => {
     console.log('提交评论');
 
     // 获取参数
@@ -127,6 +129,13 @@ router.post('/api/submitComment', (ctx, next)=> {
         errno: 0,
         msg: 'ok'
     };
+});
+
+router.post('/api/validate', (ctx, next) => {
+    console.log('sdssds');
+    console.log(ctx.request.body);
+
+    ctx.body = 'ok';
 });
 
 // 开始服务并生成路由

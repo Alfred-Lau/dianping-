@@ -21,7 +21,7 @@ export default class OrderListItem extends Component {
                         {price}
                     </p>
                 </div>
-                <input type='text' className='changeSubmit' value='评价' />
+                <input type='text' className='changeSubmit' defaultValue='评价' />
             </div>
         );
     }
