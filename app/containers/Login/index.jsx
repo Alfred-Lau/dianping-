@@ -14,7 +14,10 @@ import './style.less';
 
 class Login extends Component {
 
-    state = {}
+    constructor(props) {
+        super(props);
+        this.state = {};
+    }
 
     handleClick = (e) => {
         e.preventDefault();
