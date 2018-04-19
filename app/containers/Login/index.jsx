@@ -13,12 +13,10 @@ import { getValidation } from '../../fetch/Validate/user';
 import './style.less';
 
 class Login extends Component {
-
     constructor(props) {
         super(props);
         this.state = {};
     }
-
     handleClick = (e) => {
         e.preventDefault();
         getValidation(this.state).then(res=> res.text()).then(res => {
